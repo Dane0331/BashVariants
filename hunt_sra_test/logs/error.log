@@ -1,0 +1,195 @@
+Read1 before filtering:
+total reads: 10000
+total bases: 2500000
+Q20 bases: 2248154(89.9262%)
+Q30 bases: 2031055(81.2422%)
+
+Read2 before filtering:
+total reads: 10000
+total bases: 2500000
+Q20 bases: 2219605(88.7842%)
+Q30 bases: 2013090(80.5236%)
+
+Read1 after filtering:
+total reads: 9807
+total bases: 2180488
+Q20 bases: 1989116(91.2234%)
+Q30 bases: 1813839(83.185%)
+
+Read2 after filtering:
+total reads: 9807
+total bases: 2180488
+Q20 bases: 1986727(91.1139%)
+Q30 bases: 1825165(83.7044%)
+
+Filtering result:
+reads passed filter: 19614
+reads failed due to low quality: 386
+reads failed due to too many N: 0
+reads failed due to too short: 0
+reads with adapter trimmed: 13462
+bases trimmed due to adapters: 543314
+
+Duplication rate: 0.31%
+
+Insert size peak (evaluated by paired-end reads): 238
+
+JSON report: hunt_sra_test/results/fastp_report.json
+HTML report: hunt_sra_test/results/fastp_report.html
+
+fastp -i hunt_sra_test/data/SRR25662127_1.fastq -I hunt_sra_test/data/SRR25662127_2.fastq -o hunt_sra_test/data/SRR25662127_1.cleaned.fastq -O hunt_sra_test/data/SRR25662127_2.cleaned.fastq --html hunt_sra_test/results/fastp_report.html --json hunt_sra_test/results/fastp_report.json --thread 4 
+fastp v0.24.0, time used: 2 seconds
+[bwa_index] Pack FASTA... 0.00 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 0.04 seconds elapse.
+[bwa_index] Update BWT... 0.00 sec
+[bwa_index] Pack forward-only FASTA... 0.00 sec
+[bwa_index] Construct SA from BWT and Occ... 0.02 sec
+[main] Version: 0.7.18-r1243-dirty
+[main] CMD: bwa index hunt_sra_test/data/reference.fasta
+[main] Real time: 0.674 sec; CPU: 0.062 sec
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 19614 sequences (4360976 bp)...
+[M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (4, 9670, 1, 6)
+[M::mem_pestat] skip orientation FF as there are not enough pairs
+[M::mem_pestat] analyzing insert size distribution for orientation FR...
+[M::mem_pestat] (25, 50, 75) percentile: (143, 147, 147)
+[M::mem_pestat] low and high boundaries for computing mean and std.dev: (135, 155)
+[M::mem_pestat] mean and std.dev: (146.02, 1.84)
+[M::mem_pestat] low and high boundaries for proper pairs: (131, 159)
+[M::mem_pestat] skip orientation RF as there are not enough pairs
+[M::mem_pestat] skip orientation RR as there are not enough pairs
+[M::mem_process_seqs] Processed 19614 reads in 42.938 CPU sec, 77.571 real sec
+[main] Version: 0.7.18-r1243-dirty
+[main] CMD: bwa mem hunt_sra_test/data/reference.fasta hunt_sra_test/data/SRR25662127_1.cleaned.fastq hunt_sra_test/data/SRR25662127_2.cleaned.fastq
+[main] Real time: 78.650 sec; CPU: 43.021 sec
+Using GATK jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar AddOrReplaceReadGroups -I hunt_sra_test/results/aligned_sorted.bam -O hunt_sra_test/results/aligned_sorted_rg.bam --RGID 1 --RGLB lib1 --RGPL illumina --RGPU unit1 --RGSM sample1
+Picked up _JAVA_OPTIONS: -Xms64m
+06:28:27.120 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Tue Dec 10 06:28:27 UTC 2024] AddOrReplaceReadGroups --INPUT hunt_sra_test/results/aligned_sorted.bam --OUTPUT hunt_sra_test/results/aligned_sorted_rg.bam --RGID 1 --RGLB lib1 --RGPL illumina --RGPU unit1 --RGSM sample1 --VERBOSITY INFO --QUIET false --VALIDATION_STRINGENCY STRICT --COMPRESSION_LEVEL 2 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Tue Dec 10 06:28:40 UTC 2024] Executing as user@project-20eeb247-d6a6-4e84-92f9-8adc142ac8db on Linux 5.15.0-1046-gcp amd64; OpenJDK 64-Bit Server VM 11.0.1+13-LTS; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:4.3.0.0
+INFO	2024-12-10 06:28:40	AddOrReplaceReadGroups	Created read-group ID=1 PL=illumina LB=lib1 SM=sample1
+
+[Tue Dec 10 06:28:41 UTC 2024] picard.sam.AddOrReplaceReadGroups done. Elapsed time: 0.25 minutes.
+Runtime.totalMemory()=64946176
+Using GATK jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar MarkDuplicates -I hunt_sra_test/results/aligned_sorted_rg.bam -O hunt_sra_test/results/dedup.bam -M hunt_sra_test/results/marked_dup_metrics.txt
+Picked up _JAVA_OPTIONS: -Xms64m
+06:28:49.837 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+[Tue Dec 10 06:28:49 UTC 2024] MarkDuplicates --INPUT hunt_sra_test/results/aligned_sorted_rg.bam --OUTPUT hunt_sra_test/results/dedup.bam --METRICS_FILE hunt_sra_test/results/marked_dup_metrics.txt --MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP 50000 --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 8000 --SORTING_COLLECTION_SIZE_RATIO 0.25 --TAG_DUPLICATE_SET_MEMBERS false --REMOVE_SEQUENCING_DUPLICATES false --TAGGING_POLICY DontTag --CLEAR_DT true --DUPLEX_UMI false --FLOW_MODE false --FLOW_QUALITY_SUM_STRATEGY false --USE_END_IN_UNPAIRED_READS false --USE_UNPAIRED_CLIPPED_END false --UNPAIRED_END_UNCERTAINTY 0 --FLOW_SKIP_FIRST_N_FLOWS 0 --FLOW_Q_IS_KNOWN_END false --FLOW_EFFECTIVE_QUALITY_THRESHOLD 15 --ADD_PG_TAG_TO_READS true --REMOVE_DUPLICATES false --ASSUME_SORTED false --DUPLICATE_SCORING_STRATEGY SUM_OF_BASE_QUALITIES --PROGRAM_RECORD_ID MarkDuplicates --PROGRAM_GROUP_NAME MarkDuplicates --READ_NAME_REGEX <optimized capture of last three ':' separated fields as numeric values> --OPTICAL_DUPLICATE_PIXEL_DISTANCE 100 --MAX_OPTICAL_DUPLICATE_SET_SIZE 300000 --VERBOSITY INFO --QUIET false --VALIDATION_STRINGENCY STRICT --COMPRESSION_LEVEL 2 --MAX_RECORDS_IN_RAM 500000 --CREATE_INDEX false --CREATE_MD5_FILE false --GA4GH_CLIENT_SECRETS client_secrets.json --help false --version false --showHidden false --USE_JDK_DEFLATER false --USE_JDK_INFLATER false
+[Tue Dec 10 06:29:03 UTC 2024] Executing as user@project-20eeb247-d6a6-4e84-92f9-8adc142ac8db on Linux 5.15.0-1046-gcp amd64; OpenJDK 64-Bit Server VM 11.0.1+13-LTS; Deflater: Intel; Inflater: Intel; Provider GCS is available; Picard version: Version:4.3.0.0
+INFO	2024-12-10 06:29:03	MarkDuplicates	Start of doWork freeMemory: 38702176; totalMemory: 64946176; maxMemory: 2027290624
+INFO	2024-12-10 06:29:03	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2024-12-10 06:29:03	MarkDuplicates	Will retain up to 7345255 data points before spilling to disk.
+WARNING	2024-12-10 06:29:03	AbstractOpticalDuplicateFinderCommandLineProgram	A field field parsed out of a read name was expected to contain an integer and did not. Read name: SRR25662127.208. Cause: String 'SRR25662127.208' did not start with a parsable number.
+INFO	2024-12-10 06:29:05	MarkDuplicates	Read 27593 records. 0 pairs never matched.
+INFO	2024-12-10 06:29:05	MarkDuplicates	After buildSortedReadEndLists freeMemory: 121733992; totalMemory: 209596416; maxMemory: 2027290624
+INFO	2024-12-10 06:29:05	MarkDuplicates	Will retain up to 63352832 duplicate indices before spilling to disk.
+INFO	2024-12-10 06:29:06	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2024-12-10 06:29:06	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2024-12-10 06:29:06	MarkDuplicates	Sorting list of duplicate records.
+INFO	2024-12-10 06:29:06	MarkDuplicates	After generateDuplicateIndexes freeMemory: 747636664; totalMemory: 1287409664; maxMemory: 2027290624
+INFO	2024-12-10 06:29:06	MarkDuplicates	Marking 17785 records as duplicates.
+INFO	2024-12-10 06:29:06	MarkDuplicates	Found 0 optical duplicate clusters.
+INFO	2024-12-10 06:29:06	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2024-12-10 06:29:07	MarkDuplicates	Writing complete. Closing input iterator.
+INFO	2024-12-10 06:29:07	MarkDuplicates	Duplicate Index cleanup.
+INFO	2024-12-10 06:29:07	MarkDuplicates	Getting Memory Stats.
+INFO	2024-12-10 06:29:07	MarkDuplicates	Before output close freeMemory: 1249550304; totalMemory: 1287409664; maxMemory: 2027290624
+INFO	2024-12-10 06:29:07	MarkDuplicates	Closed outputs. Getting more Memory Stats.
+INFO	2024-12-10 06:29:07	MarkDuplicates	After output close freeMemory: 1138183520; totalMemory: 1171861504; maxMemory: 2027290624
+[Tue Dec 10 06:29:07 UTC 2024] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 0.30 minutes.
+Runtime.totalMemory()=1171861504
+Using GATK jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar HaplotypeCaller -R hunt_sra_test/data/reference.fasta -I hunt_sra_test/results/dedup.bam -O hunt_sra_test/results/raw_variants.vcf
+Picked up _JAVA_OPTIONS: -Xms64m
+06:29:16.715 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+06:29:29.743 INFO  HaplotypeCaller - ------------------------------------------------------------
+06:29:29.743 INFO  HaplotypeCaller - The Genome Analysis Toolkit (GATK) v4.3.0.0
+06:29:29.743 INFO  HaplotypeCaller - For support and documentation go to https://software.broadinstitute.org/gatk/
+06:29:29.744 INFO  HaplotypeCaller - Executing as user@project-20eeb247-d6a6-4e84-92f9-8adc142ac8db on Linux v5.15.0-1046-gcp amd64
+06:29:29.744 INFO  HaplotypeCaller - Java runtime: OpenJDK 64-Bit Server VM v11.0.1+13-LTS
+06:29:29.744 INFO  HaplotypeCaller - Start Date/Time: December 10, 2024 at 6:29:16 AM UTC
+06:29:29.745 INFO  HaplotypeCaller - ------------------------------------------------------------
+06:29:29.745 INFO  HaplotypeCaller - ------------------------------------------------------------
+06:29:29.746 INFO  HaplotypeCaller - HTSJDK Version: 3.0.1
+06:29:29.746 INFO  HaplotypeCaller - Picard Version: 2.27.5
+06:29:29.746 INFO  HaplotypeCaller - Built for Spark Version: 2.4.5
+06:29:29.746 INFO  HaplotypeCaller - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+06:29:29.746 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+06:29:29.746 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+06:29:29.747 INFO  HaplotypeCaller - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+06:29:29.747 INFO  HaplotypeCaller - Deflater: IntelDeflater
+06:29:29.747 INFO  HaplotypeCaller - Inflater: IntelInflater
+06:29:29.747 INFO  HaplotypeCaller - GCS max retries/reopens: 20
+06:29:29.747 INFO  HaplotypeCaller - Requester pays: disabled
+06:29:29.747 INFO  HaplotypeCaller - Initializing engine
+06:29:30.228 INFO  HaplotypeCaller - Done initializing engine
+06:29:30.236 INFO  HaplotypeCallerEngine - Disabling physical phasing, which is supported only for reference-model confidence output
+06:29:30.312 INFO  NativeLibraryLoader - Loading libgkl_utils.so from jar:file:/home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar!/com/intel/gkl/native/libgkl_utils.so
+06:29:30.314 INFO  NativeLibraryLoader - Loading libgkl_pairhmm_omp.so from jar:file:/home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar!/com/intel/gkl/native/libgkl_pairhmm_omp.so
+06:29:30.331 INFO  IntelPairHmm - Using CPU-supported AVX-512 instructions
+06:29:30.331 INFO  IntelPairHmm - Flush-to-zero (FTZ) is enabled when running PairHMM
+06:29:30.332 INFO  IntelPairHmm - Available threads: 4
+06:29:30.332 INFO  IntelPairHmm - Requested threads: 4
+06:29:30.332 INFO  PairHMM - Using the OpenMP multi-threaded AVX-accelerated native PairHMM implementation
+06:29:30.517 INFO  ProgressMeter - Starting traversal
+06:29:30.517 INFO  ProgressMeter -        Current Locus  Elapsed Minutes     Regions Processed   Regions/Minute
+06:29:44.741 INFO  ProgressMeter -     NG_009378.1:5147              0.2                    20             84.4
+06:29:45.027 WARN  InbreedingCoeff - InbreedingCoeff will not be calculated at position NG_009378.1:19780 and possibly subsequent; at least 10 samples must have called genotypes
+06:29:45.911 INFO  HaplotypeCaller - 518 read(s) filtered by: MappingQualityReadFilter 
+0 read(s) filtered by: MappingQualityAvailableReadFilter 
+0 read(s) filtered by: MappedReadFilter 
+0 read(s) filtered by: NotSecondaryAlignmentReadFilter 
+17757 read(s) filtered by: NotDuplicateReadFilter 
+0 read(s) filtered by: PassesVendorQualityCheckReadFilter 
+0 read(s) filtered by: NonZeroReferenceLengthAlignmentReadFilter 
+0 read(s) filtered by: GoodCigarReadFilter 
+0 read(s) filtered by: WellformedReadFilter 
+18275 total reads filtered
+06:29:45.911 INFO  ProgressMeter -   NG_009378.1:175906              0.3                   591           2303.5
+06:29:45.912 INFO  ProgressMeter - Traversal complete. Processed 591 total regions in 0.3 minutes.
+06:29:45.913 INFO  VectorLoglessPairHMM - Time spent in setup for JNI call : 0.009041172
+06:29:45.914 INFO  PairHMM - Total compute time in PairHMM computeLogLikelihoods() : 7.512063959000001
+06:29:45.918 INFO  SmithWatermanAligner - Total compute time in java Smith-Waterman : 1.73 sec
+06:29:45.919 INFO  HaplotypeCaller - Shutting down engine
+[December 10, 2024 at 6:29:45 AM UTC] org.broadinstitute.hellbender.tools.walkers.haplotypecaller.HaplotypeCaller done. Elapsed time: 0.49 minutes.
+Runtime.totalMemory()=95727616
+Using GATK jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar VariantFiltration -R hunt_sra_test/data/reference.fasta -V hunt_sra_test/results/raw_variants.vcf -O hunt_sra_test/results/filtered_variants.vcf --filter-expression QD < 2.0 || FS > 60.0 || MQ < 40.0 --filter-name LowQual
+Picked up _JAVA_OPTIONS: -Xms64m
+06:29:54.620 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/home/user/htt_env/share/gatk4-4.3.0.0-0/gatk-package-4.3.0.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+06:30:07.627 INFO  VariantFiltration - ------------------------------------------------------------
+06:30:07.627 INFO  VariantFiltration - The Genome Analysis Toolkit (GATK) v4.3.0.0
+06:30:07.627 INFO  VariantFiltration - For support and documentation go to https://software.broadinstitute.org/gatk/
+06:30:07.628 INFO  VariantFiltration - Executing as user@project-20eeb247-d6a6-4e84-92f9-8adc142ac8db on Linux v5.15.0-1046-gcp amd64
+06:30:07.628 INFO  VariantFiltration - Java runtime: OpenJDK 64-Bit Server VM v11.0.1+13-LTS
+06:30:07.628 INFO  VariantFiltration - Start Date/Time: December 10, 2024 at 6:29:54 AM UTC
+06:30:07.628 INFO  VariantFiltration - ------------------------------------------------------------
+06:30:07.629 INFO  VariantFiltration - ------------------------------------------------------------
+06:30:07.630 INFO  VariantFiltration - HTSJDK Version: 3.0.1
+06:30:07.630 INFO  VariantFiltration - Picard Version: 2.27.5
+06:30:07.630 INFO  VariantFiltration - Built for Spark Version: 2.4.5
+06:30:07.630 INFO  VariantFiltration - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+06:30:07.630 INFO  VariantFiltration - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+06:30:07.630 INFO  VariantFiltration - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+06:30:07.634 INFO  VariantFiltration - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+06:30:07.634 INFO  VariantFiltration - Deflater: IntelDeflater
+06:30:07.634 INFO  VariantFiltration - Inflater: IntelInflater
+06:30:07.634 INFO  VariantFiltration - GCS max retries/reopens: 20
+06:30:07.634 INFO  VariantFiltration - Requester pays: disabled
+06:30:07.634 INFO  VariantFiltration - Initializing engine
+06:30:08.013 INFO  FeatureManager - Using codec VCFCodec to read file file:///home/user/hunt_sra_test/results/raw_variants.vcf
+06:30:08.037 INFO  VariantFiltration - Done initializing engine
+06:30:08.234 INFO  ProgressMeter - Starting traversal
+06:30:08.234 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+06:30:08.323 INFO  ProgressMeter -             unmapped              0.0                     4           2727.3
+06:30:08.324 INFO  ProgressMeter - Traversal complete. Processed 4 total variants in 0.0 minutes.
+06:30:08.325 INFO  VariantFiltration - Shutting down engine
+[December 10, 2024 at 6:30:08 AM UTC] org.broadinstitute.hellbender.tools.walkers.filters.VariantFiltration done. Elapsed time: 0.23 minutes.
+Runtime.totalMemory()=64946176

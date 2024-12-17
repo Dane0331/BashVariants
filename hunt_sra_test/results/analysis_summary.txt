@@ -1,0 +1,3 @@
+Reference Sequence: hunt_sra_test/data/NG_009378.1_reference.fasta
+ClinVar Variants: hunt_sra_test/variants/NG_009378.1_clinvar_variants.vcf
+Annotated Variants: hunt_sra_test/clinvar/NG_009378.1_annotated_variants.vcf
